@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!-- ====================== -->
+<!-- USERS SHOW PAGE -->
+<!-- ====================== -->
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+    <h1><%=user.username%>'s Show Page</h1>
+    <main>
+      <h3>Name: <%=user.username%></h3>
+    </main>
+    <section>
+    <form action="/users/<%=user._id%>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete Chef"/>
+    </form>
+    </section>
+    <section>
+      <a href="/users/<%=user._id%>/edit">Edit</a>
+    </section>
+  </body>
+</html>

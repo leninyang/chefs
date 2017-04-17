@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!-- ====================== -->
+<!-- USERS EDIT PAGE -->
+<!-- ====================== -->
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+    <h1>Edit <%=user.username%>'s Info'</h1>
+    <main>
+      <h2>Users Atributes:</h2>
+      <form action="/users/<%=user._id%>?_method=PUT" method="POST">
+        Name: <input type="text" name="name" value="<%=user.username%>"><br>
+        <input type="submit" value="Update Chef">
+      </form>
+    </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- HOME PAGE -->
+<html>
+  <head>
+    <% include partials/head %>
+  </head>
+  <body>
+    <% include partials/nav %>
+    <h1>ChefsCorner Home Page</h1>
+    <h2>
+      <% if (currentUser) { %>
+        Welcome <%=currentUser.username%>!
+      <% } else { %>
+        Welcome!
+      <% } %>
+    </h2>
+    <div>
+      <ul>
+        <% if(currentUser === undefined) { %>
+          <li><a href="/sessions/new">Log In</a></li>
+          <li><a href="users/new">Register</a></li>
+        <% } else { %>
+    <!-- Create Log Out Button for Logged In Users on Index Page -->
+          <li>
+            <a href="/recipes/new">Create New Recipe</a>
+          </li>
+          <li>
+            <form action="/sessions?_method=DELETE" method="POST">
+            <input type="submit" value="Logout"/>
+            </form>
+          </li>
+          <li>
+      <!-- Create Link To "Special" Page For Logged In Users -->
+            Welcome to the <a href="/app">Party!</a>
+          </li>
+          <li><a href="/users">See all the Chefs</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </body>
+</html>

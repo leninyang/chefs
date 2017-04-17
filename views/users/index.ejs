@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!-- ====================== -->
+<!-- USERS INDEX PAGE -->
+<!-- ====================== -->
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+    <h1>List of Chefs</h1>
+    <div>
+      <ul>
+        <% for (var i = 0; i < users.length; i++) { %>
+          <li><a href="/users/<%=users[i]._id%>"><%=users[i].username%></a></li>
+        <% } %>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!-- ====================== -->
+<!-- USERS NEW PAGE -->
+<!-- ====================== -->
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+    <h1>Create User</h1>
+    <h2>User's new.ejs</h2>
+    <form action="/users" method="POST">
+      <input type="text" name="username" placeholder="username">
+      <input type="password" name="password" placeholder="password">
+      <input type="submit" value="Create User">
+    </form>
+  </body>
+</html>
