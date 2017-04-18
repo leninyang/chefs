@@ -13,7 +13,9 @@ var bcrypt = require('bcrypt');
 
 // SESSIONS NEW ROUTE | Login/New Page
 router.get('/new', function(req, res){
-    res.render('sessions/new.ejs');
+    res.render('sessions/new.ejs', {
+      currentUser: req.session.currentuser
+    });
 });
 
 // SESSIONS CREATE ROUTE | Create User/Match/Encrypt Password

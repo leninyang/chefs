@@ -2,3 +2,35 @@
   width: 20%;
   height: 20%;
 }
+
+.home-nav {
+  background: url("/images/home_nav_30.jpg");
+  height: 45vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-nav {
+  background: url("/images/login_nav_30.jpg");
+  height: 45vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.chefs-corner {
+  font-size: 28px;
+  padding-right: 15px;
+}
+
+.log-in {
+  max-width: 20%;
+}
+
+.round-button {
+  border-radius: 20px;
+}
+
+.logged-in-user {
+  font-size: 20px;
+  padding-right: 13px;
+}

@@ -5,7 +5,38 @@
     <% include partials/head %>
   </head>
   <body>
-    <% include partials/nav %>
+    <section>
+      <% if (currentUser === undefined) { %>
+        <nav class="responsive-img N/A transparent home-nav">
+          <ul>
+            <li><a href="/"><h5 class="chefs-corner">ChefsCorner</h5></a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/users">Chefs</a></li>
+            <li><a href="/recipes">Recipes</a></li>
+          </ul>
+          <ul class="right">
+            <li><a class="right" href="/sessions/new">Log In</a></li>
+            <li><a class="right" href="users/new">Register</a></li>
+          </ul>
+        </nav>
+      <% } else { %>
+        <nav class="responsive-img N/A transparent home-nav">
+          <ul>
+            <li><a href="/"><h5 class="chefs-corner">ChefsCorner</h5></a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/users">Chefs</a></li>
+            <li><a href="/recipes">Recipes</a></li>
+            <li><a href="/recipes/new">Create Recipes</a></li>
+            <li class="right">
+              <form action="/sessions?_method=DELETE" method="POST">
+                <input class="btn deep-orange lighten-1 round-button hoverable" type="submit" value="Logout"/>
+              </form>
+            </li>
+            <li class="right logged-in-user"><%=currentUser.username%></li>
+          </ul>
+        </nav>
+      <% } %>
+    </section>
     <h1>ChefsCorner Home Page</h1>
     <h2>
       <% if (currentUser) { %>
@@ -14,28 +45,28 @@
         Welcome!
       <% } %>
     </h2>
-    <div>
+    <!-- <div>
       <ul>
         <% if(currentUser === undefined) { %>
           <li><a href="/sessions/new">Log In</a></li>
           <li><a href="users/new">Register</a></li>
-        <% } else { %>
+        <% } else { %> -->
     <!-- Create Log Out Button for Logged In Users on Index Page -->
-          <li>
+          <!-- <li>
             <a href="/recipes/new">Create New Recipe</a>
           </li>
           <li>
             <form action="/sessions?_method=DELETE" method="POST">
-            <input type="submit" value="Logout"/>
+              <input type="submit" value="Logout"/>
             </form>
           </li>
-          <li>
+          <li> -->
       <!-- Create Link To "Special" Page For Logged In Users -->
-            Welcome to the <a href="/app">Party!</a>
+            <!-- Welcome to the <a href="/app">Party!</a>
           </li>
           <li><a href="/users">See all the Chefs</a></li>
         <% } %>
       </ul>
-    </div>
+    </div> -->
   </body>
 </html>

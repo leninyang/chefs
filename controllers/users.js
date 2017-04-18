@@ -13,7 +13,9 @@ var Recipe = require('../models/recipes.js')
 
 // 1) USERS NEW ROUTE / Create User New Page
 router.get('/new', function(req, res) {
-  res.render('users/new.ejs')
+  res.render('users/new.ejs', {
+    currentUser: req.session.currentuser
+  })
 });
 
 // 3) USERS INDEX ROUTE

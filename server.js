@@ -47,13 +47,13 @@ app.get('/', function(req, res) {
 })
 
 // SPECIAL ROUTE/PAGE
-app.get('/app', function(req, res){
-  if (req.session.currentuser !== undefined) { // Disallow Users Not Logged In From entering "Special" Page
-    res.send('the party');
-  } else {
-    res.redirect('/');
-  }
-});
+// app.get('/app', function(req, res){
+//   if (req.session.currentuser !== undefined) { // Disallow Users Not Logged In From entering "Special" Page
+//     res.send('the party');
+//   } else {
+//     res.redirect('/');
+//   }
+// });
 
 // START MONGO
 mongoose.connect(mongoDBURI);
