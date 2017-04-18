@@ -12,12 +12,16 @@ var User = require('../models/users.js');
 
 // 2) RECIPES NEW ROUTE | CREATE NEW RECIPES
 router.get('/new', function(req, res) {
-  User.find({}, function(err, foundUsers) { // Finds all users and displays them using SELECT tag
-    res.render('recipes/new.ejs', {
-      users: foundUsers,
-      currentUser: req.session.currentuser // Passing in current user
+  if (req.session.currentuser !== undefined) { // Dis-allow Users Not Logged In From entering
+    User.find({}, function(err, foundUsers) { // Finds all users and displays them using SELECT tag
+      res.render('recipes/new.ejs', {
+        users: foundUsers,
+        currentUser: req.session.currentuser // Passing in current user
+      });
     });
-  });
+  } else {
+    res.redirect('/');
+  }
 });
 
 // 1) RECIPES INDEX ROUTE
