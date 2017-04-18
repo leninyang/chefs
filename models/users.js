@@ -2,11 +2,12 @@
 // USER SCHEMA
 //==================
 var mongoose = require('mongoose');
+var Recipe = require('./recipes.js')
 
 var userSchema = mongoose.Schema({
   username: {type: String, required: true, unique: true},
-  password: {type: String, required: true}
-  // recipes: [Recipe.schema]
+  password: {type: String, required: true},
+  recipes: [Recipe.schema]
 });
 
 //==================

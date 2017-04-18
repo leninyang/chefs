@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!-- ====================== -->
+<!-- EDIT INDEX PAGE -->
+<!-- ====================== -->
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+    <h1>Recipes Edit Page</h1>
+    <h2>Edit <%=recipe.title%>'s Info</h2>
+    <form action="/recipes/<%=recipe._id%>?_method=PUT" method="POST">
+      <input type="text" name="title" value="<%=recipe.title%>"><br>
+      <input type="text" name="img" value="<%=recipe.img%>"><br>
+      <input type="text" name="description" value="<%=recipe.description%>"><br>
+      <input type="submit" value="Update Recipe">
+    </form>
+  </body>
+</html>
