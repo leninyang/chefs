@@ -5,6 +5,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/users.js')
 var bcrypt = require('bcrypt');
+var Recipe = require('../models/recipes.js')
 
 //=========================
 // ROUTES
@@ -19,7 +20,8 @@ router.get('/new', function(req, res) {
 router.get('/', function(req, res) {
   User.find({}, function(err, foundUsers) {
     res.render('users/index.ejs', {
-      users: foundUsers
+      users: foundUsers,
+      currentUser: req.session.currentuser
     });
   });
 });
@@ -27,8 +29,12 @@ router.get('/', function(req, res) {
 // 4) USERS SHOW PAGE
 router.get('/:id', function(req, res) {
   User.findById(req.params.id, function(err, foundUser) {
-    res.render('users/show.ejs', {
-      user: foundUser
+    Recipe.find({}, function(err, foundRecipes) {
+      res.render('users/show.ejs', {
+        user: foundUser,
+        recipes: foundRecipes,
+        currentUser: req.session.currentuser
+      });
     });
   });
 });
@@ -37,7 +43,8 @@ router.get('/:id', function(req, res) {
 router.get('/:id/edit', function(req, res) {
   User.findById(req.params.id, function(err, foundUser) {
     res.render('users/edit.ejs', {
-      user: foundUser
+      user: foundUser,
+      currentUser: req.session.currentuser
     });
   });
 });

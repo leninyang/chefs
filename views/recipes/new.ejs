@@ -4,14 +4,14 @@
 <!-- ====================== -->
 <html>
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <% include ../partials/head %>
   </head>
   <body>
+    <% include ../partials/nav %>
     <h1>Create Recipe</h1>
     <h2>Recipe's new.ejs</h2>
     <form action="/recipes" method="POST">
-      <input type="hidden" name="currentuserId" value="<%=currentuser._id%>"> <!-- Creating a hidden input and currentuserId Key and giving value of currentuser._id -->
+      <input type="hidden" name="currentuserId" value="<%=currentUser._id%>"> <!-- Creating a hidden input and currentuserId Key and giving value of currentuser._id -->
       <input type="text" name="title" placeholder="title">
       <input type="text" name="img" placeholder="Image Url">
       <input type="text" name="description" placeholder="decription">

@@ -15,7 +15,7 @@ router.get('/new', function(req, res) {
   User.find({}, function(err, foundUsers) { // Finds all users and displays them using SELECT tag
     res.render('recipes/new.ejs', {
       users: foundUsers,
-      currentuser: req.session.currentuser // Passing in current user
+      currentUser: req.session.currentuser // Passing in current user
     });
   });
 });
@@ -24,7 +24,8 @@ router.get('/new', function(req, res) {
 router.get('/', function(req, res) {
   Recipe.find({}, function(err, foundRecipes) {
     res.render('recipes/index.ejs', {
-      recipes: foundRecipes
+      recipes: foundRecipes,
+      currentUser: req.session.currentuser
     });
   });
 });
@@ -35,7 +36,8 @@ router.get('/:id', function(req, res) {
     User.findOne({'recipes._id':req.params.id}, function(err, foundUser) { // Display Author With Link on Article Show Page
       res.render('recipes/show.ejs', {
         user: foundUser,
-        recipe: foundRecipe
+        recipe: foundRecipe,
+        currentUser: req.session.currentuser
       });
     });
   });
@@ -45,7 +47,8 @@ router.get('/:id', function(req, res) {
 router.get('/:id/edit', function(req, res) {
   Recipe.findById(req.params.id, function(err, foundRecipe) {
     res.render('recipes/edit.ejs', {
-      recipe: foundRecipe
+      recipe: foundRecipe,
+      currentUser: req.session.currentuser
     });
   });
 });

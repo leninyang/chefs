@@ -1,7 +1,18 @@
-<nav class="deep-orange">
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/users">Chefs</a></li>
-    <li><a href="/recipes">Recipes</a></li>
-  </ul>
-</nav>
+<% if (currentUser === undefined) { %>
+  <nav class="deep-orange">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/users">Chefs</a></li>
+      <li><a href="/recipes">Recipes</a></li>
+    </ul>
+  </nav>
+<% } else { %>
+  <nav class="deep-orange">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/users">Chefs</a></li>
+      <li><a href="/recipes">Recipes</a></li>
+      <li><a href="/recipes/new">Create Recipes</a></li>
+    </ul>
+  </nav>
+<% } %>
