@@ -7,14 +7,66 @@
     <% include ../partials/head %>
   </head>
   <body>
-    <% include ../partials/nav %>
-    <h1>List of Recipes</h1>
-    <div>
-      <ul>
+    <section>
+      <% if (currentUser === undefined) { %>
+        <nav class="responsive-img N/A transparent recipes-nav">
+          <ul>
+            <li><a href="/"><h5 class="chefs-corner">ChefsCorner</h5></a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/users">Chefs</a></li>
+            <li><a href="/recipes">Recipes</a></li>
+          </ul>
+          <ul class="right">
+            <li><a class="right" href="/sessions/new">Log In</a></li>
+            <li><a class="right" href="users/new">Register</a></li>
+          </ul>
+        </nav>
+      <% } else { %>
+        <nav class="responsive-img N/A transparent recipes-nav">
+          <ul>
+            <li><a href="/"><h5 class="chefs-corner">ChefsCorner</h5></a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/users">Chefs</a></li>
+            <li><a href="/recipes">Recipes</a></li>
+            <li><a href="/recipes/new">Create Recipes</a></li>
+            <li class="right">
+              <form action="/sessions?_method=DELETE" method="POST">
+                <input class="btn deep-orange lighten-1 round-button hoverable" type="submit" value="Logout"/>
+              </form>
+            </li>
+            <li class="right logged-in-user"><%=currentUser.username%></li>
+          </ul>
+        </nav>
+      <% } %>
+    </section>
+    <!-- <h1>List of Recipes</h1> -->
+
+      <!-- <ul>
         <% for(var i = 0; i < recipes.length; i++) { %>
         <li><a href="/recipes/<%=recipes[i]._id%>"><%=recipes[i].title%></a></li>
         <% } %>
-      </ul>
-    </div>
+      </ul> -->
+      <section class="card-container container">
+          <% for(var i = 0; i < recipes.length; i++) { %>
+          <div class="recipe-cards">
+            <div class="row">
+              <div class="col s12">
+                <div class="card small">
+                  <div class="card-image">
+                    <img src="<%=recipes[i].img%>">
+                    <span class="card-title"><%=recipes[i].title%></span>
+                  </div>
+                  <div class="card-content">
+                    <p><%=recipes[i].description%></p>
+                  </div>
+                  <div class="card-action">
+                    <a href="/recipes/<%=recipes[i]._id%>">Read...</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% } %>
+      </section>
   </body>
 </html>

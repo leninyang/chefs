@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var mongoose = require('mongoose');
 var methodOverride = require('method-override');
+var User = require('./models/users.js');
+var Recipe = require('./models/recipes.js');
 
 var port = process.env.PORT || 3000;
 var mongoDBURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/project2';
@@ -41,8 +43,12 @@ app.use('/recipes', recipesController);
 
 // HOME PAGE
 app.get('/', function(req, res) {
-  res.render('index.ejs', {
-    currentUser: req.session.currentuser
+  User.find({}, function(err, foundUsers) {
+    Recipe.find({}, function(foundRecipes) {
+      res.render('index.ejs', {
+        currentUser: req.session.currentuser
+      });
+    });
   });
 })
 

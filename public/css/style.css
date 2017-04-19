@@ -3,16 +3,40 @@
   height: 20%;
 }
 
+.card-container {
+  display: flex;
+}
+
+.recipe-cards {
+  height: 300px;
+  width: 300px;
+  padding: 40px 0 20px 0 ;
+  margin: 0 auto;
+}
+
+.card-image {
+  width: 100%
+}
+
+
+
 .home-nav {
   background: url("/images/home_nav_30.jpg");
-  height: 45vw;
+  height: 40vw;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.login-nav {
+.recipes-nav {
   background: url("/images/login_nav_30.jpg");
-  height: 45vw;
+  height: 40vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.chefs-nav {
+  background: url("/images/chefs_nav_15.jpeg");
+  height: 40vw;
   background-repeat: no-repeat;
   background-size: cover;
 }
