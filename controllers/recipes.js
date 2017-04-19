@@ -79,8 +79,13 @@ router.post('/', function(req, res) {
 
 // 5) DELETE ROUTE
 router.delete('/:id', function(req, res) {
-  User.findByIdAndRemove(req.params.id, function() {
-    res.redirect('/recipes');
+  Recipe.findByIdAndRemove(req.params.id, function(err, foundRecipe) {
+    User.findOne({'recipes._id':req.params.id}, function(err, foundUser) {
+      foundUser.recipes.id(req.params.id).remove();
+      foundUser.save(function(err, data) {
+        res.redirect('/recipes');
+      });
+    });
   });
 });
 

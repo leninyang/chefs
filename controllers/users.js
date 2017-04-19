@@ -31,7 +31,6 @@ router.get('/', function(req, res) {
 // 4) USERS SHOW PAGE
 router.get('/:id', function(req, res) {
   User.findById(req.params.id, function(err, foundUser) {
-    console.log(foundUser);
     Recipe.find({}, function(err, foundRecipes) {
       res.render('users/show.ejs', {
         user: foundUser,

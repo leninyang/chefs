@@ -34,23 +34,13 @@
         </div>
         <% } %>
     </section>
-    <!-- <main>
-      <div>
-        <% for(var i = 0; i < recipes.length; i++) { %>
-          <a href="/recipes/<%=recipes[i]._id%>">
-            <img class="userShowImg" src="<%=recipes[i].img%>"><br>
-            <%=recipes[i].title%><br>
-          </a>
-        <% } %>
-      </div>
-    </main>
     <section>
-    <form action="/users/<%=user._id%>?_method=DELETE" method="POST">
-        <input type="submit" value="Delete Chef"/>
-    </form>
+      <form action="/users/<%=user._id%>?_method=DELETE" method="POST">
+        <input class="btn" type="submit" value="Delete Chef"/>
+      </form>
     </section>
     <section>
-      <a href="/users/<%=user._id%>/edit">Edit</a>
-    </section> -->
+      <a class="btn" href="/users/<%=user._id%>/edit">Edit</a>
+    </section>
   </body>
 </html>
