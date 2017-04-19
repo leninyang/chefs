@@ -80,6 +80,7 @@ router.post('/', function(req, res) {
 // 5) DELETE ROUTE
 router.delete('/:id', function(req, res) {
   Recipe.findByIdAndRemove(req.params.id, function(err, foundRecipe) {
+    // Deleting an Article Updates An Author's Articles List
     User.findOne({'recipes._id':req.params.id}, function(err, foundUser) {
       foundUser.recipes.id(req.params.id).remove();
       foundUser.save(function(err, data) {

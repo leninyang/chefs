@@ -7,8 +7,45 @@
     <% include ../partials/head %>
   </head>
   <body>
-    <% include ../partials/nav %>
-    <h1><%=user.username%>'s Cooking Adventures</h1>
+    <section>
+      <% if (currentUser === undefined) { %>
+        <nav class="deep-orange">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/users">Chefs</a></li>
+            <li><a href="/recipes">Recipes</a></li>
+          </ul>
+        </nav>
+      <% } else { %>
+        <nav class="deep-orange">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/users">Chefs</a></li>
+            <li><a href="/recipes">Posts</a></li>
+            <li><a href="/recipes/new">Add Post</a></li>
+            <li class="right">
+              <form action="/sessions?_method=DELETE" method="POST">
+                <input class="btn deep-orange lighten-1 round-button hoverable" type="submit" value="Logout"/>
+              </form>
+            </li>
+            <li class="right logged-in-user"><%=currentUser.username%></li>
+          </ul>
+        </nav>
+      <% } %>
+    </section>
+    <section class="center-align">
+      <h1>
+        Check out what <%=user.username%>'s cooked up!
+      </h1>
+      <section class="dlt-btn">
+        <a class="btn" href="/users/<%=user._id%>/edit">Edit</a>
+      </section>
+      <section class="dlt-btn">
+        <form action="/users/<%=user._id%>?_method=DELETE" method="POST">
+          <input class="btn" type="submit" value="Delete"/>
+        </form>
+      </section>
+    </section>
     <!-- <% for (var i = 0; i < user.recipes.length; i++) { %>
     <img src="<%=user.recipes[i].img%>" alt="">
     <% } %> -->
@@ -34,13 +71,13 @@
         </div>
         <% } %>
     </section>
-    <section>
+    <!-- <section class="dlt-btn">
+      <a class="btn" href="/users/<%=user._id%>/edit">Edit</a>
+    </section>
+    <section class="dlt-btn">
       <form action="/users/<%=user._id%>?_method=DELETE" method="POST">
         <input class="btn" type="submit" value="Delete Chef"/>
       </form>
-    </section>
-    <section>
-      <a class="btn" href="/users/<%=user._id%>/edit">Edit</a>
-    </section>
+    </section> -->
   </body>
 </html>
