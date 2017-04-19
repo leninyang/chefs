@@ -29,7 +29,7 @@ router.get('/', function(req, res) {
   Recipe.find({}, function(err, foundRecipes) {
     res.render('recipes/index.ejs', {
       recipes: foundRecipes,
-      currentUser: req.session.currentuser
+      currentUser: req.session.currentuser,
     });
   });
 });
@@ -68,9 +68,7 @@ router.put('/:id', function(req, res) {
 router.post('/', function(req, res) {
   //Find by currentuserId Key
   User.findById(req.body.currentuserId, function(err, foundUser) {
-    console.log(req.body.currentuserId);
     Recipe.create(req.body, function(err, newRecipe) {
-      console.log(req.body);
       foundUser.recipes.push(newRecipe); // Creating a new Recipe Pushes a Copy Onto Users's Recipe Array
       foundUser.save(function(err, data) {
         res.redirect('/recipes');

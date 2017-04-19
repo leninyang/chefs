@@ -11,8 +11,14 @@
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/users">Chefs</a></li>
-      <li><a href="/recipes">Recipes</a></li>
-      <li><a href="/recipes/new">Create Recipes</a></li>
+      <li><a href="/recipes">Posts</a></li>
+      <li><a href="/recipes/new">Add Post</a></li>
+      <li class="right">
+        <form action="/sessions?_method=DELETE" method="POST">
+          <input class="btn deep-orange lighten-1 round-button hoverable" type="submit" value="Logout"/>
+        </form>
+      </li>
+      <li class="right logged-in-user"><%=currentUser.username%></li>
     </ul>
   </nav>
 <% } %>

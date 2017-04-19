@@ -27,8 +27,8 @@
             <li><a href="/"><h5 class="chefs-corner">ChefsCorner</h5></a></li>
             <li><a href="/">Home</a></li>
             <li><a href="/users">Chefs</a></li>
-            <li><a href="/recipes">Recipes</a></li>
-            <li><a href="/recipes/new">Create Recipes</a></li>
+            <li><a href="/recipes">Posts</a></li>
+            <li><a href="/recipes/new">Add Posts</a></li>
             <li class="right">
               <form action="/sessions?_method=DELETE" method="POST">
                 <input class="btn deep-orange lighten-1 round-button hoverable" type="submit" value="Logout"/>
@@ -39,13 +39,22 @@
         </nav>
       <% } %>
     </section>
-    <h1>List of Chefs</h1>
-    <div>
-      <ul>
-        <% for (var i = 0; i < users.length; i++) { %>
-          <li><a href="/users/<%=users[i]._id%>"><%=users[i].username%></a></li>
-        <% } %>
-      </ul>
-    </div>
+    <main class="center-align">
+      <h1>Meet the Chefs</h1>
+      <h5>Sign up to share your culinary adventures!</h5>
+      <hr>
+      <div class="container">
+        <ul class="collection">
+          <% for (var i = 0; i < users.length; i++) { %>
+
+            <li class="collection-item deep-orange lighten-5">
+              <img class="chef-hat" src="images/chef_hat_avatar.png" alt="" class="circle">
+              <span class="title">Chef: </span>
+              <a href="/users/<%=users[i]._id%>"><%=users[i].username%></a>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </main>
   </body>
 </html>

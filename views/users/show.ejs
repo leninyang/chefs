@@ -8,9 +8,33 @@
   </head>
   <body>
     <% include ../partials/nav %>
-    <h1><%=user.username%>'s Show Page</h1>
-    <main>
-      <h3>Name: <%=user.username%></h3>
+    <h1><%=user.username%>'s Cooking Adventures</h1>
+    <!-- <% for (var i = 0; i < user.recipes.length; i++) { %>
+    <img src="<%=user.recipes[i].img%>" alt="">
+    <% } %> -->
+    <section class="card-container container">
+        <% for(var i = 0; i < user.recipes.length; i++) { %>
+        <div class="recipe-cards">
+          <div class="row">
+            <div class="col s12">
+              <div class="card small">
+                <div class="card-image">
+                  <img src="<%=user.recipes[i].img%>">
+                  <span class="card-title"><%=recipes[i].title%></span>
+                </div>
+                <div class="card-content">
+                  <p><%=recipes[i].description%></p>
+                </div>
+                <div class="card-action">
+                  <a href="/recipes/<%=recipes[i]._id%>">Read...</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+    </section>
+    <!-- <main>
       <div>
         <% for(var i = 0; i < recipes.length; i++) { %>
           <a href="/recipes/<%=recipes[i]._id%>">
@@ -27,6 +51,6 @@
     </section>
     <section>
       <a href="/users/<%=user._id%>/edit">Edit</a>
-    </section>
+    </section> -->
   </body>
 </html>

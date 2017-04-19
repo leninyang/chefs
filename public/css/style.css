@@ -1,6 +1,6 @@
-.userShowImg {
-  width: 20%;
-  height: 20%;
+.show-img {
+  width: 100%;
+  height: auto;
 }
 
 .card-container {
@@ -18,7 +18,19 @@
   width: 100%
 }
 
+.chef-hat {
+  height: 25px;
+  width: 25px;
+}
 
+.dlt-btn {
+  display: inline-block;
+}
+
+a {
+  color: #0060B6;
+  text-decoration: none;
+}
 
 .home-nav {
   background: url("/images/home_nav_30.jpg");
@@ -28,7 +40,7 @@
 }
 
 .recipes-nav {
-  background: url("/images/login_nav_30.jpg");
+  background: url("/images/recipes_nav_20.jpeg");
   height: 40vw;
   background-repeat: no-repeat;
   background-size: cover;
