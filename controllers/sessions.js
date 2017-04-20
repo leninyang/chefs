@@ -22,12 +22,16 @@ router.get('/new', function(req, res){
 router.post('/', function(req, res){
   // Search by username
   User.findOne({ username: req.body.username }, function(err, foundUser){
-    // Compare bcrypted password On Login
-    if(bcrypt.compareSync(req.body.password, foundUser.password)){ // If passwords match
-        req.session.currentuser = foundUser; // Add User to Session On Log In
-        res.redirect('/');
-    } else { // If passwords don't match
-        res.send('wrong password');
+    if (foundUser !== null) {
+      // Compare bcrypted password On Login
+      if(bcrypt.compareSync(req.body.password, foundUser.password)){ // If passwords match
+          req.session.currentuser = foundUser; // Add User to Session On Log In
+          res.redirect('/');
+      } else { // If passwords don't match
+          res.redirect('/sessions/new');
+      }
+    } else {
+      res.redirect('/sessions/new');
     }
   });
 });
