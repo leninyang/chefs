@@ -103,6 +103,14 @@ h6 {
   background-size: cover;
 }
 
+.user-nav {
+  background: url("/images/user_nav_15.jpg");
+  height: 40vw;
+  background-position: 0px -200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .chefs-nav {
   background: url("/images/chefs_nav_25.jpg");
   height: 40vw;
