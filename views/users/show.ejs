@@ -33,19 +33,23 @@
         </nav>
       <% } %>
     </section>
-    <section class="center-align">
-      <h1>
-        Check out what <%=user.username%>'s cooked up!
-      </h1>
-      <section class="dlt-btn">
-        <a class="btn" href="/users/<%=user._id%>/edit">Edit Account</a>
+    <header class="container">
+      <section class="center-align home-content">
+        <h1>
+          Check out what <%=user.username%>'s made!
+        </h1>
+        <section class="dlt-btn">
+          <a class="btn" href="/users/<%=user._id%>/edit">Edit Account</a>
+        </section>
+        <section class="dlt-btn">
+          <form action="/users/<%=user._id%>?_method=DELETE" method="POST">
+            <input class="btn" type="submit" value="Delete Account"/>
+          </form>
+        </section>
       </section>
-      <section class="dlt-btn">
-        <form action="/users/<%=user._id%>?_method=DELETE" method="POST">
-          <input class="btn" type="submit" value="Delete Account"/>
-        </form>
-      </section>
-    </section>
+      <hr>
+    </header>
+
     <!-- <% for (var i = 0; i < user.recipes.length; i++) { %>
     <img src="<%=user.recipes[i].img%>" alt="">
     <% } %> -->
