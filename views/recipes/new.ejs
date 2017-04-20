@@ -7,14 +7,49 @@
     <% include ../partials/head %>
   </head>
   <body>
-    <% include ../partials/nav %>
-    <h1>Create Recipe</h1>
-    <form action="/recipes" method="POST">
-      <input type="hidden" name="currentuserId" value="<%=currentUser._id%>"> <!-- Creating a hidden input and currentuserId Key and giving value of currentuser._id -->
-      <input type="text" name="title" placeholder="title">
-      <input type="text" name="img" placeholder="Image Url">
-      <input type="text" name="description" placeholder="decription">
-      <input type="submit" value="Create Recipe">
-    </form>
+    <section>
+      <% if (currentUser === undefined) { %>
+        <nav class="responsive-img N/A transparent new-recipe-nav">
+          <ul>
+            <li><a href="/"><h5 class="chefs-corner">ChefsCorner</h5></a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/users">Chefs</a></li>
+            <li><a href="/recipes">Recipes</a></li>
+          </ul>
+          <ul class="right">
+            <li><a class="right" href="/sessions/new">Log In</a></li>
+            <li><a class="right" href="/users/new">Register</a></li>
+          </ul>
+        </nav>
+      <% } else { %>
+        <nav class="responsive-img N/A transparent new-recipe-nav">
+          <ul>
+            <li><a href="/"><h5 class="chefs-corner">ChefsCorner</h5></a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/users">Chefs</a></li>
+            <li><a href="/recipes">Posts</a></li>
+            <li><a href="/recipes/new">Add Posts</a></li>
+            <li class="right">
+              <form action="/sessions?_method=DELETE" method="POST">
+                <input class="btn deep-orange lighten-1 round-button hoverable" type="submit" value="Logout"/>
+              </form>
+            </li>
+            <li class="right logged-in-user"><%=currentUser.username%></li>
+          </ul>
+        </nav>
+      <% } %>
+    </section>
+    <!-- <% include ../partials/nav %> -->
+    <main class="container">
+      <h4>What did you cook up?</h4>
+      <hr>
+      <form action="/recipes" method="POST">
+        <input type="hidden" name="currentuserId" value="<%=currentUser._id%>"> <!-- Creating a hidden input and currentuserId Key and giving value of currentuser._id -->
+        <input type="text" name="title" placeholder="title">
+        <input type="text" name="img" placeholder="Image Url">
+        <input type="text" name="description" placeholder="decription">
+        <input class="btn" type="submit" value="Add Post">
+      </form>
+    </main>
   </body>
 </html>

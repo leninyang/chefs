@@ -73,6 +73,13 @@ h6 {
   padding-bottom: 30px;
 }
 
+.new-recipe-nav{
+  background: url("/images/new_recipe_nav.jpg");
+  height: 40vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .recipes-nav {
   background: url("/images/recipes_nav_35.jpg");
   height: 40vw;
