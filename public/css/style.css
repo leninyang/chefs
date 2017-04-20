@@ -44,8 +44,8 @@ a {
 
 .home-nav {
   background: url("/images/home_nav2_30.jpg");
-  height: 46vw;
-  background-position: 0px -40px;
+  height: 44vw;
+  background-position: 0px -65px;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -66,6 +66,11 @@ a {
 #welcome-to-chefscorner{
   font-family: 'Lato', sans-serif;
   font-weight: bold;
+}
+
+#join-now {
+  padding-top: 40px;
+  padding-bottom: 80px;
 }
 
 h6 {
@@ -153,6 +158,6 @@ h6 {
 
 #footer-p {
   font-size: .9em;
-  padding-top: 250px;
+  padding-top: 50px;
   font-family: 'Abel', sans-serif;
 }
