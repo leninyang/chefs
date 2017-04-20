@@ -38,11 +38,11 @@
         Check out what <%=user.username%>'s cooked up!
       </h1>
       <section class="dlt-btn">
-        <a class="btn" href="/users/<%=user._id%>/edit">Edit</a>
+        <a class="btn" href="/users/<%=user._id%>/edit">Edit Account</a>
       </section>
       <section class="dlt-btn">
         <form action="/users/<%=user._id%>?_method=DELETE" method="POST">
-          <input class="btn" type="submit" value="Delete"/>
+          <input class="btn" type="submit" value="Delete Account"/>
         </form>
       </section>
     </section>
