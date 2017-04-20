@@ -56,14 +56,14 @@
             <div class="col s12">
               <div class="card small">
                 <div class="card-image">
-                  <img src="<%=user.recipes[i].img%>">
-                  <span class="card-title"><%=recipes[i].title%></span>
+                  <img src="<%=currentUser.recipes[i].img%>">
+                  <span class="card-title"><%=currentUser.recipes[i].title%></span>
                 </div>
                 <div class="card-content">
-                  <p><%=recipes[i].description%></p>
+                  <p><%=currentUser.recipes[i].description%></p>
                 </div>
                 <div class="card-action">
-                  <a href="/recipes/<%=recipes[i]._id%>">Read...</a>
+                  <a href="/recipes/<%=currentUser.recipes[i]._id%>">Read...</a>
                 </div>
               </div>
             </div>

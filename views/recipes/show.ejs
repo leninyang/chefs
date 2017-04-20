@@ -8,22 +8,24 @@
   </head>
   <body>
     <% include ../partials/nav %>
-     <!-- Display Author's Articles With Links On Author Show Page -->
-    <img class="show-img" src="<%=recipe.img%>"><br>
-    <small>By: <a href="/users/<%=user._id%>"><%=user.username%></a></small><br>
-    <h2><%=recipe.title%></h2>
-    <hr>
-    <h4><%=recipe.description%></h4>
-    <hr>
-    <section class="dlt-btn">
-      <% if (currentUser) { %>
-        <form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
-          <input class="btn" type="submit" value="Delete Recipe">
-        </form>
-      <% } %>
-    </section>
-    <section class="dlt-btn">
-      <a class="btn" href="/recipes/<%=recipe._id%>/edit">Edit Recipe</a>
-    </section>
+    <main class="container center-align home-content">
+      <!-- Display Author's Articles With Links On Author Show Page -->
+     <img class="show-img" src="<%=recipe.img%>"><br>
+     <small>By: <a href="/users/<%=user._id%>"><%=user.username%></a></small><br>
+     <h4 id="welcome-to-chefscorner"><%=recipe.title%></h4>
+     <hr>
+     <p class="home-blurb"><%=recipe.description%></p>
+     <hr>
+     <section class="dlt-btn">
+       <% if (currentUser) { %>
+         <form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
+           <input class="btn" type="submit" value="Delete Recipe">
+         </form>
+       <% } %>
+     </section>
+     <section class="dlt-btn">
+       <a class="btn" href="/recipes/<%=recipe._id%>/edit">Edit Recipe</a>
+     </section>
+    </main>
   </body>
 </html>
