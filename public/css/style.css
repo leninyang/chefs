@@ -63,7 +63,7 @@ a {
   font-weight: bold;
 }
 
-#glad {
+h6 {
   font-style: italic;
   padding-bottom: 30px;
 }
@@ -75,12 +75,42 @@ a {
   background-size: cover;
 }
 
+.sessions-nav {
+  background: url("/images/sessions_nav_25.jpg");
+  height: 40vw;
+  background-position: 0px -200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.new-user-nav {
+  background: url("/images/new_user_nav_20.jpg");
+  height: 40vw;
+  background-position: 0px -200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .chefs-nav {
   background: url("/images/chefs_nav_25.jpg");
   height: 40vw;
   background-position: 0px -50px;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.user-index-content {
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  color: grey;
+}
+
+#user-signup {
+  padding-bottom: 25px;
+}
+
+.collection-container{
+  padding-top: 30px;
 }
 
 .chefs-corner {
@@ -99,4 +129,10 @@ a {
 .logged-in-user {
   font-size: 20px;
   padding-right: 13px;
+}
+
+#footer-p {
+  font-size: .9em;
+  padding-top: 250px;
+  font-family: 'Abel', sans-serif;
 }

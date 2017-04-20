@@ -18,7 +18,7 @@
           </ul>
           <ul class="right">
             <li><a class="right" href="/sessions/new">Log In</a></li>
-            <li><a class="right" href="users/new">Register</a></li>
+            <li><a class="right" href="/users/new">Register</a></li>
           </ul>
         </nav>
       <% } else { %>
@@ -39,11 +39,11 @@
         </nav>
       <% } %>
     </section>
-    <main class="center-align">
+    <main class="center-align user-index-content">
       <h1>Meet the Chefs</h1>
-      <h5>Sign up to share your culinary adventures!</h5>
+      <h6 id="user-signup">Sign up to share your culinary adventures!</h6>
       <hr>
-      <div class="container">
+      <div class="container collection-container">
         <ul class="collection">
           <% for (var i = 0; i < users.length; i++) { %>
 

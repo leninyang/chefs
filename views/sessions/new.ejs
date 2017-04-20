@@ -6,8 +6,10 @@
   </head>
   <body>
     <section>
-        <nav>
+      <% if (currentUser === undefined) { %>
+        <nav class="responsive-img N/A transparent sessions-nav">
           <ul>
+            <li><a href="/"><h5 class="chefs-corner">ChefsCorner</h5></a></li>
             <li><a href="/">Home</a></li>
             <li><a href="/users">Chefs</a></li>
             <li><a href="/recipes">Recipes</a></li>
@@ -17,13 +19,30 @@
             <li><a class="right" href="/users/new">Register</a></li>
           </ul>
         </nav>
+      <% } else { %>
+        <nav class="responsive-img N/A transparent sessions-nav">
+          <ul>
+            <li><a href="/"><h5 class="chefs-corner">ChefsCorner</h5></a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/users">Chefs</a></li>
+            <li><a href="/recipes">Posts</a></li>
+            <li><a href="/recipes/new">Add Posts</a></li>
+            <li class="right">
+              <form action="/sessions?_method=DELETE" method="POST">
+                <input class="btn deep-orange lighten-1 round-button hoverable" type="submit" value="Logout"/>
+              </form>
+            </li>
+            <li class="right logged-in-user"><%=currentUser.username%></li>
+          </ul>
+        </nav>
+      <% } %>
     </section>
     <main class="container">
-      <h4>Sign In</h4>
+      <h4>Log In</h4>
       <form action="/sessions" method="POST">
         <input type="text" name="username" placeholder="username"/>
         <input type="password" name="password" placeholder="password"/>
-        <input type="submit" value="Sign In" />
+        <input class="btn" type="submit" value="Log In" />
       </form>
     </main>
   </body>

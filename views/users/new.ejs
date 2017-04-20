@@ -7,13 +7,47 @@
     <% include ../partials/head %>
   </head>
   <body>
-    <% include ../partials/nav %>
-    <h1>Create User</h1>
-    <h2>User's new.ejs</h2>
-    <form action="/users" method="POST">
-      <input type="text" name="username" placeholder="username">
-      <input type="password" name="password" placeholder="password">
-      <input type="submit" value="Create User">
-    </form>
+    <!-- <% include ../partials/nav %> -->
+    <section>
+      <% if (currentUser === undefined) { %>
+        <nav class="responsive-img N/A transparent new-user-nav">
+          <ul>
+            <li><a href="/"><h5 class="chefs-corner">ChefsCorner</h5></a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/users">Chefs</a></li>
+            <li><a href="/recipes">Recipes</a></li>
+          </ul>
+          <ul class="right">
+            <li><a class="right" href="/sessions/new">Log In</a></li>
+            <li><a class="right" href="/users/new">Register</a></li>
+          </ul>
+        </nav>
+      <% } else { %>
+        <nav class="responsive-img N/A transparent new-user-nav">
+          <ul>
+            <li><a href="/"><h5 class="chefs-corner">ChefsCorner</h5></a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/users">Chefs</a></li>
+            <li><a href="/recipes">Posts</a></li>
+            <li><a href="/recipes/new">Add Posts</a></li>
+            <li class="right">
+              <form action="/sessions?_method=DELETE" method="POST">
+                <input class="btn deep-orange lighten-1 round-button hoverable" type="submit" value="Logout"/>
+              </form>
+            </li>
+            <li class="right logged-in-user"><%=currentUser.username%></li>
+          </ul>
+        </nav>
+      <% } %>
+    </section>
+    <main class="container">
+      <h4>Register</h4>
+      <form action="/users" method="POST">
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <input class="btn" type="submit" value="Sign Up">
+      </form>
+    </main>
+
   </body>
 </html>
