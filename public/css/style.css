@@ -18,6 +18,7 @@
   width: 100%
 }
 
+/*Icon for users*/
 .chef-hat {
   height: 25px;
   width: 25px;
@@ -27,28 +28,57 @@
   display: inline-block;
 }
 
+.card-title {
+  text-shadow: 0.7px 0.7px #3e3a3a;
+}
+
 a {
   color: #0060B6;
   text-decoration: none;
 }
 
 .home-nav {
-  background: url("/images/home_nav_30.jpg");
-  height: 40vw;
+  background: url("/images/home_nav2_30.jpg");
+  height: 46vw;
+  background-position: 0px -40px;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+.home-content {
+  color: grey;
+}
+
+.home-blurb {
+  font-family: 'Lato', sans-serif;
+}
+
+#what-is {
+  padding-top: 30px;
+  font-weight: 400;
+}
+
+#welcome-to-chefscorner{
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+}
+
+#glad {
+  font-style: italic;
+  padding-bottom: 30px;
+}
+
 .recipes-nav {
-  background: url("/images/recipes_nav_20.jpeg");
+  background: url("/images/recipes_nav_35.jpg");
   height: 40vw;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .chefs-nav {
-  background: url("/images/chefs_nav_15.jpeg");
+  background: url("/images/chefs_nav_25.jpg");
   height: 40vw;
+  background-position: 0px -50px;
   background-repeat: no-repeat;
   background-size: cover;
 }

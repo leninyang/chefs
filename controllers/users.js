@@ -70,7 +70,7 @@ router.post('/', function(req, res){
 router.delete('/:id', function(req, res) {
   User.findByIdAndRemove(req.params.id, function(err, foundUser) {
     var recipeIds = [];
-    for (var i = 0; i < foundUser.recipes.length; i++) {
+    for (var i = 0; i < foundUser.recipes.length; i++) { // Deleting an Author Deletes The Associated Articles
       recipeIds.push(foundUser.recipes[i]._id);
     }
     Recipe.remove(

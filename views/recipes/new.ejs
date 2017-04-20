@@ -9,7 +9,6 @@
   <body>
     <% include ../partials/nav %>
     <h1>Create Recipe</h1>
-    <h2>Recipe's new.ejs</h2>
     <form action="/recipes" method="POST">
       <input type="hidden" name="currentuserId" value="<%=currentUser._id%>"> <!-- Creating a hidden input and currentuserId Key and giving value of currentuser._id -->
       <input type="text" name="title" placeholder="title">
