@@ -21,10 +21,8 @@
          <form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
            <input class="btn" type="submit" value="Delete">
          </form>
+        <a class="btn" href="/recipes/<%=recipe._id%>/edit">Edit</a>
        <% } %>
-     </section>
-     <section class="dlt-btn">
-       <a class="btn" href="/recipes/<%=recipe._id%>/edit">Edit</a>
      </section>
     </main>
   </body>

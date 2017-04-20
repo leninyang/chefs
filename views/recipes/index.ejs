@@ -3,24 +3,24 @@
 <!-- RECIPES INDEX PAGE -->
 <!-- ====================== -->
 <html>
-  <head>
-    <% include ../partials/head %>
-  </head>
-  <body>
-    <section>
-      <% if (currentUser === undefined) { %>
-        <nav class="responsive-img N/A transparent recipes-nav">
-          <ul>
-            <li><a href="/"><h5 class="chefs-corner">ChefsCorner</h5></a></li>
-            <li><a href="/">Home</a></li>
-            <li><a href="/users">Chefs</a></li>
-            <li><a href="/recipes">Posts</a></li>
-          </ul>
-          <ul class="right">
-            <li><a class="right" href="/sessions/new">Log In</a></li>
-            <li><a class="right" href="users/new">Register</a></li>
-          </ul>
-        </nav>
+<head>
+  <% include ../partials/head %>
+</head>
+<body>
+  <section>
+    <% if (currentUser === undefined) { %>
+      <nav class="responsive-img N/A transparent recipes-nav">
+        <ul>
+          <li><a href="/"><h5 class="chefs-corner">ChefsCorner</h5></a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/users">Chefs</a></li>
+          <li><a href="/recipes">Posts</a></li>
+        </ul>
+        <ul class="right">
+          <li><a class="right" href="/sessions/new">Log In</a></li>
+          <li><a class="right" href="/users/new">Register</a></li>
+        </ul>
+      </nav>
       <% } else { %>
         <nav class="responsive-img N/A transparent recipes-nav">
           <ul>
@@ -37,17 +37,14 @@
             <li class="right logged-in-user"><%=currentUser.username%></li>
           </ul>
         </nav>
-      <% } %>
-    </section>
-    <!-- <h1>List of Recipes</h1> -->
-
-      <!-- <ul>
-        <% for(var i = 0; i < recipes.length; i++) { %>
-        <li><a href="/recipes/<%=recipes[i]._id%>"><%=recipes[i].title%></a></li>
         <% } %>
-      </ul> -->
-      <section class="card-container center-align">
-          <% for(var i = 0; i < recipes.length; i++) { %>
+      </section>
+      <section class="center-align content container">
+        <h4>Check out what other people have made!</h4>
+        <hr>
+      </section>
+      <section class="card-container container center-align">
+        <% for(var i = 0; i < recipes.length; i++) { %>
           <div class="recipe-cards">
             <div class="row">
               <div class="col s12">
@@ -67,6 +64,6 @@
             </div>
           </div>
           <% } %>
-      </section>
-  </body>
-</html>
+        </section>
+      </body>
+      </html>
