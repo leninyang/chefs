@@ -42,21 +42,17 @@
       </section>
     <!-- <% include ../partials/nav %> -->
     </section>
-    <% if (currentUser === undefined) { %>
     <header class="container">
       <section class="center-align home-content">
         <h1>
           Check out what <%=user.username%>'s made!
         </h1>
       </section>
-      <hr>
     </header>
-    <% } else { %>
+    <% if (currentUser === undefined) { %>
+    <% } else if (currentUser.username === user.username) { %>
       <header class="container">
         <section class="center-align home-content">
-          <h1>
-            Check out what <%=user.username%>'s made!
-          </h1>
           <section class="dlt-btn">
             <a class="btn" href="/users/<%=user._id%>/edit">Edit Account</a>
           </section>
@@ -66,9 +62,11 @@
             </form>
           </section>
         </section>
-        <hr>
       </header>
     <% } %>
+    <section class="container">
+      <hr>
+    </section>
     <!-- <% for (var i = 0; i < user.recipes.length; i++) { %>
     <img src="<%=user.recipes[i].img%>" alt="">
     <% } %> -->
