@@ -17,7 +17,8 @@
      <p class="home-blurb"><%=recipe.description%></p>
      <hr>
      <section>
-       <% if (currentUser.username === user.username) { %>
+       <% if (currentUser === undefined) { %>
+       <% } else if (currentUser.username === user.username) { %>
          <form class="dlt-btn" action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
            <input class="btn" type="submit" value="Delete">
          </form>
